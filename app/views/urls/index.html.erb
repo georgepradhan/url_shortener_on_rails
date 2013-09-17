@@ -1,17 +1,6 @@
-<%= form_for @url do |f| %>
-
-	<p>
-		<%= label_tag(:long_url, "Enter long url here: ") %>
-		<%= f.text_field :long_url %><br>
-		<%= label_tag(:short_url, "Enter short url here: ") %>
-		<%= f.text_field :short_url %><br>
-		<%= f.submit "Shorten it!" %>
-	<p>
-
-<% end %>
-
-
+<%= render :partial => "create_new_url_form", locals: {url: @url} %>
 
 <% @urls.each do |url| %>
 	<%= link_to "#{url.short_url}", url_path(url) %>
 <% end %>
+
