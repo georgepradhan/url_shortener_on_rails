@@ -1,9 +1,17 @@
 UrlShortener::Application.routes.draw do
+  resources :urls, :only => [:index, :create, :show]
+  # the above creates an 'extra' path of /urls which we "want" as our index
+  # delete :index from array of actions to get rid of.
+
+  # match '/' => 'urls#index' # this also works.
+  # root :to => 'urls#index'
+  root :to => 'urls#index'
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  # match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
